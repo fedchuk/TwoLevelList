@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- splash -->
+    <dimen name="activity_splash_title_text_size">28sp</dimen>
+
+    <!-- main -->
+    <dimen name="activity_main_item_adapter_title_text_size">16sp</dimen>
+    <dimen name="activity_main_item_adapter_title_text_padding">16dp</dimen>
+
+</resources>
