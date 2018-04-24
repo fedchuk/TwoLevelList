@@ -30,6 +30,7 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import eu.theappshop.twolevellist.data.db.AppDatabase;
 import eu.theappshop.twolevellist.di.ApplicationContext;
 import eu.theappshop.twolevellist.di.components.AddCookiesInterceptor;
 import eu.theappshop.twolevellist.di.components.ReceivedCookiesInterceptor;
@@ -61,6 +62,12 @@ public class ApplicationModule {
     @Provides
     Application provideApplication() {
         return mApplication;
+    }
+
+    @Provides
+    @Singleton
+    AppDatabase provideAppDatabase() {
+        return AppDatabase.getInstance(provideContext());
     }
 
     @Provides

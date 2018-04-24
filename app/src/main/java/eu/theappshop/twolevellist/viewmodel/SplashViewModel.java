@@ -4,6 +4,7 @@ package eu.theappshop.twolevellist.viewmodel;
 import android.app.Application;
 
 import eu.theappshop.twolevellist.activities.base.BaseViewModel;
+import eu.theappshop.twolevellist.data.db.AppDatabase;
 import eu.theappshop.twolevellist.navigator.SplashNavigator;
 import eu.theappshop.twolevellist.utils.SchedulerProvider;
 import io.reactivex.disposables.CompositeDisposable;
@@ -16,7 +17,7 @@ import retrofit2.Retrofit;
 public class SplashViewModel extends BaseViewModel<SplashNavigator> {
 
     public SplashViewModel(Retrofit retrofit, SchedulerProvider schedulerProvider,
-                           CompositeDisposable compositeDisposable, Application application) {
-        super(retrofit, schedulerProvider, compositeDisposable, application);
+                           CompositeDisposable compositeDisposable, Application application, AppDatabase appDatabase) {
+        super(retrofit, schedulerProvider, compositeDisposable, application, appDatabase);
     }
 }

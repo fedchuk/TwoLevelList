@@ -16,16 +16,24 @@
 
 package eu.theappshop.twolevellist.utils;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+
 /**
- * Created by Fedchuk Maxim on 2018-04-23.
+ * Created by Fedchuk Maxim on 2018-04-24.
  */
 
-public final class AppConstants {
+public final class NetworkUtils {
 
-    public static final String BASE_URL = "https://demo8139132.mockable.io";
-    public static final String DB_NAME = "levellist-db";
+    private NetworkUtils() {
+        // This class is not publicly instantiable
+    }
 
-    private AppConstants() {
-        // This utility class is not publicly instantiable
+    public static boolean isNetworkConnected(Context context) {
+        ConnectivityManager cm =
+                (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        return activeNetwork != null && activeNetwork.isConnectedOrConnecting();
     }
 }

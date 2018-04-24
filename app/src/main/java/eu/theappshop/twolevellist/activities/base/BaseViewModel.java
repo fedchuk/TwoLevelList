@@ -4,6 +4,7 @@ import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.widget.Toast;
 
+import eu.theappshop.twolevellist.data.db.AppDatabase;
 import eu.theappshop.twolevellist.data.helper.ApiHelper;
 import eu.theappshop.twolevellist.utils.SchedulerProvider;
 import io.reactivex.disposables.CompositeDisposable;
@@ -19,15 +20,17 @@ public abstract class BaseViewModel<N> extends AndroidViewModel {
     private final ApiHelper mApiHelper;
     private final SchedulerProvider mSchedulerProvider;
     private final CompositeDisposable mCompositeDisposable;
+    private final AppDatabase mAppDatabase;
     private N mNavigator;
 
     public BaseViewModel(Retrofit retrofit, SchedulerProvider schedulerProvider,
-                         CompositeDisposable compositeDisposable, Application application) {
+                         CompositeDisposable compositeDisposable, Application application, AppDatabase appDatabase) {
         super(application);
         this.mRetrofit = retrofit;
         this.mSchedulerProvider = schedulerProvider;
         this.mCompositeDisposable = compositeDisposable;
         this.mApiHelper = retrofit.create(ApiHelper.class);
+        this.mAppDatabase = appDatabase;
     }
 
     public void onDestroy() {
@@ -56,6 +59,10 @@ public abstract class BaseViewModel<N> extends AndroidViewModel {
 
     public CompositeDisposable getCompositeDisposable() {
         return mCompositeDisposable;
+    }
+
+    public AppDatabase getAppDatabase() {
+        return mAppDatabase;
     }
 
     public void logMessage(String message) {

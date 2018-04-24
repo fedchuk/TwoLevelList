@@ -23,6 +23,7 @@ import javax.inject.Singleton;
 
 import dagger.Component;
 import eu.theappshop.twolevellist.TwoLevelList;
+import eu.theappshop.twolevellist.data.db.AppDatabase;
 import eu.theappshop.twolevellist.di.ApplicationContext;
 import eu.theappshop.twolevellist.di.module.ApplicationModule;
 import retrofit2.Retrofit;
@@ -43,4 +44,6 @@ public interface ApplicationComponent {
     Application application();
 
     Retrofit getRetrofit();
+
+    AppDatabase getAppDatabase();
 }

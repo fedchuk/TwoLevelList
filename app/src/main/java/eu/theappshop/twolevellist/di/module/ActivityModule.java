@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import dagger.Module;
 import dagger.Provides;
+import eu.theappshop.twolevellist.data.db.AppDatabase;
 import eu.theappshop.twolevellist.di.ActivityContext;
 import eu.theappshop.twolevellist.di.PerActivity;
 import eu.theappshop.twolevellist.utils.AppSchedulerProvider;
@@ -52,14 +53,14 @@ public class ActivityModule {
     @Provides
     @PerActivity
     MainViewModel provideMainViewModel(Retrofit retrofit, SchedulerProvider schedulerProvider,
-                                       CompositeDisposable compositeDisposable, Application application) {
-        return new MainViewModel(retrofit, schedulerProvider, compositeDisposable, application);
+                                       CompositeDisposable compositeDisposable, Application application, AppDatabase appDatabase) {
+        return new MainViewModel(retrofit, schedulerProvider, compositeDisposable, application, appDatabase);
     }
 
     @Provides
     @PerActivity
     SplashViewModel provideSplashViewModel(Retrofit retrofit, SchedulerProvider schedulerProvider,
-                                           CompositeDisposable compositeDisposable, Application application) {
-        return new SplashViewModel(retrofit, schedulerProvider, compositeDisposable, application);
+                                           CompositeDisposable compositeDisposable, Application application, AppDatabase appDatabase) {
+        return new SplashViewModel(retrofit, schedulerProvider, compositeDisposable, application, appDatabase);
     }
 }

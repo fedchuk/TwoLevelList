@@ -2,22 +2,21 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/relativelayout_child"
+    android:id="@+id/relavitelayout_root"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
 
     <TextView
-        android:id="@+id/textview_title_body"
-        style="@style/NewsChildText"
+        android:id="@+id/textview_title"
+        style="@style/NewsTitleText"
         tools:text="Example Title News" />
 
     <ImageView
-        android:id="@+id/imageCheck"
+        android:id="@+id/imageArrow"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_alignParentRight="true"
         android:layout_margin="10dp"
-        android:visibility="gone"
-        app:srcCompat="@drawable/ic_checked" />
+        app:srcCompat="@drawable/ic_arrow_down" />
 </RelativeLayout>
